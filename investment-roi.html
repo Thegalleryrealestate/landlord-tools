@@ -215,9 +215,14 @@ tbody tr:hover{background:rgba(60,56,53,0.02);}
 [data-theme="dark"] .bottom-nav { border-color: rgba(240,235,230,0.06); }
 @media (max-width: 640px) { .nav-links { gap: 6px; } .nav-link { font-size: 12px; padding: 6px 12px; } }
 
+.embedded .header, .embedded .bottom-nav, .embedded .footer, .embedded .cta-section { display:none!important; }
+.embedded .page { padding-top:20px; padding-bottom:20px; }
+.embedded body, .embedded { background:transparent; }
+html.embedded { overflow:hidden; }
 </style>
 </head>
 <body>
+<script>if(window.self!==window.top)document.documentElement.classList.add('embedded');</script>
 <div class="page">
   <a href="index.html" class="back-btn animate-in"><svg viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>All Tools</a>
 
