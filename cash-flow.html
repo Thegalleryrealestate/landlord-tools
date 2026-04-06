@@ -104,6 +104,9 @@ select:focus { border-color:var(--red); }
 .cta-form .full-width { grid-column:1/-1; }
 .cta-btn { display:inline-flex; align-items:center; justify-content:center; min-width:280px; height:52px; padding:0 36px; border:none; border-radius:26px; background:var(--red); color:var(--white); font-family:var(--font); font-size:15px; font-weight:600; letter-spacing:0.01em; text-decoration:none; cursor:pointer; transition:background var(--transition), transform 0.15s ease; margin-top:24px; }
 .cta-btn:hover { background:#c0553b; transform:translateY(-1px); }
+.cta-btn.outline { background:transparent; color:var(--red); border:2px solid var(--red); }
+.cta-btn.outline:hover { background:var(--red); color:var(--white); }
+.cta-buttons { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
 .cta-note { font-size:12px; font-weight:300; opacity:0.35; margin-top:16px; }
 
 .footer { text-align:center; padding:48px 0 0; font-size:13px; font-weight:300; opacity:0.35; }
@@ -329,13 +332,16 @@ html.embedded { scrollbar-width:none; }
   <div class="cta-section animate-in delay-3">
     <h2>Make your property <span>work harder.</span></h2>
     <p>Our specialist team can help optimise your rental return and reduce costs.</p>
-    <a href="https://www.thegalleryrealestate.com.au/landlordonenquiry" target="_blank" class="cta-btn">Request Free Appraisal</a>
+    <div class="cta-buttons">
+      <a href="https://www.thegalleryrealestate.com.au/request-a-rental-appraisal" target="_blank" class="cta-btn">Request Appraisal</a>
+      <a href="https://www.thegalleryrealestate.com.au/landlordonenquiry" target="_blank" class="cta-btn outline">Landlord Enquiry</a>
+    </div>
   </div>
 
   <div class="bottom-nav">
     <div class="nav-group">
       <div class="nav-group-label">Calculators</div>
-      <div class="nav-links"><a href="index.html" class="nav-link">All Tools</a><a href="rental-yield.html" class="nav-link">Rental Yield</a><a href="cash-flow.html" class="nav-link active">Cash Flow</a><a href="investment-roi.html" class="nav-link">Investment ROI</a></div>
+      <div class="nav-links"><a href="index.html" class="nav-link">All Tools</a><a href="rental-yield.html" class="nav-link">Rental Yield</a><a href="cash-flow.html" class="nav-link active">Cash Flow</a><a href="investment-roi.html" class="nav-link">Investment ROI</a><a href="mortgage.html" class="nav-link">Mortgage</a></div>
     </div>
     <div class="nav-group">
       <div class="nav-group-label">The Gallery Real Estate</div>

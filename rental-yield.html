@@ -438,6 +438,9 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .cta-btn:active { transform: translateY(0); }
+.cta-btn.outline { background:transparent; color:var(--red); border:2px solid var(--red); }
+.cta-btn.outline:hover { background:var(--red); color:var(--white); }
+.cta-buttons { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
 
 .cta-note {
   font-size: 12px;
@@ -684,13 +687,16 @@ html.embedded { scrollbar-width:none; }
   <div class="cta-section animate-in delay-3">
     <h2>Want to know your property's <span>true potential?</span></h2>
     <p>Get a free, no-obligation rental appraisal from our specialist team.</p>
-    <a href="https://www.thegalleryrealestate.com.au/landlordonenquiry" target="_blank" class="cta-btn">Request Free Appraisal</a>
+    <div class="cta-buttons">
+      <a href="https://www.thegalleryrealestate.com.au/request-a-rental-appraisal" target="_blank" class="cta-btn">Request Appraisal</a>
+      <a href="https://www.thegalleryrealestate.com.au/landlordonenquiry" target="_blank" class="cta-btn outline">Landlord Enquiry</a>
+    </div>
   </div>
 
   <div class="bottom-nav">
     <div class="nav-group">
       <div class="nav-group-label">Calculators</div>
-      <div class="nav-links"><a href="index.html" class="nav-link">All Tools</a><a href="rental-yield.html" class="nav-link active">Rental Yield</a><a href="cash-flow.html" class="nav-link">Cash Flow</a><a href="investment-roi.html" class="nav-link">Investment ROI</a></div>
+      <div class="nav-links"><a href="index.html" class="nav-link">All Tools</a><a href="rental-yield.html" class="nav-link active">Rental Yield</a><a href="cash-flow.html" class="nav-link">Cash Flow</a><a href="investment-roi.html" class="nav-link">Investment ROI</a><a href="mortgage.html" class="nav-link">Mortgage</a></div>
     </div>
     <div class="nav-group">
       <div class="nav-group-label">The Gallery Real Estate</div>
