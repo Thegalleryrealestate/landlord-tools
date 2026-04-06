@@ -200,7 +200,8 @@ select:focus { border-color:var(--red); }
 .embedded .header, .embedded .bottom-nav, .embedded .footer, .embedded .cta-section { display:none!important; }
 .embedded .page { padding-top:20px; padding-bottom:20px; }
 .embedded body, .embedded { background:transparent; }
-html.embedded { overflow:hidden; }
+html.embedded::-webkit-scrollbar { display:none; }
+html.embedded { scrollbar-width:none; }
 </style>
 </head>
 <body>
