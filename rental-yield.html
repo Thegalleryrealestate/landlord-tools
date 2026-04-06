@@ -579,7 +579,7 @@ html.embedded { scrollbar-width:none; }
 </style>
 </head>
 <body>
-<script>if(window.self!==window.top)document.documentElement.classList.add('embedded');</script>
+<script>if(window.self!==window.top){document.documentElement.classList.add('embedded');function postHeight(){window.parent.postMessage({type:'tgre-resize',height:document.documentElement.scrollHeight},'*');}window.addEventListener('load',function(){setTimeout(postHeight,100);});new ResizeObserver(postHeight).observe(document.body);}</script>
 
 <div class="page">
   <!-- Header -->
