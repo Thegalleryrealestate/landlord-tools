@@ -629,13 +629,6 @@ html.embedded { scrollbar-width:none; }
       <input type="range" id="expenses" min="0" max="30000" step="500" value="8500">
     </div>
 
-    <div class="slider-group">
-      <div class="slider-header">
-        <label>Vacancy Rate</label>
-        <span class="slider-value" id="vacancyDisplay">2%</span>
-      </div>
-      <input type="range" id="vacancy" min="0" max="10" step="0.5" value="2">
-    </div>
 
     <!-- Results -->
     <div class="results" id="results">
@@ -646,12 +639,12 @@ html.embedded { scrollbar-width:none; }
       <div class="result-card">
         <div class="result-label">Net Rental Yield</div>
         <div class="result-number" id="netYield">3.49%</div>
-        <div class="result-sub">After expenses & vacancy</div>
+        <div class="result-sub">After expenses</div>
       </div>
       <div class="result-card">
         <div class="result-label">Annual Rental Income</div>
         <div class="result-number" id="annualIncome">$39,000</div>
-        <div class="result-sub" id="annualIncomeAdj">$38,220 adj. for vacancy</div>
+        <div class="result-sub" id="annualIncomeAdj">$30,500 after expenses</div>
       </div>
     </div>
 
@@ -683,11 +676,6 @@ html.embedded { scrollbar-width:none; }
           <span class="legend-label">Expenses</span>
           <span class="legend-value" id="legendExpenses">$8,500</span>
         </div>
-        <div class="legend-item">
-          <span class="legend-dot" style="background:rgba(60,56,53,0.1)"></span>
-          <span class="legend-label">Vacancy Loss</span>
-          <span class="legend-value" id="legendVacancy">$780</span>
-        </div>
       </div>
     </div>
   </div>
@@ -702,7 +690,7 @@ html.embedded { scrollbar-width:none; }
   <div class="bottom-nav">
     <div class="nav-group">
       <div class="nav-group-label">Calculators</div>
-      <div class="nav-links"><a href="index.html" class="nav-link">All Tools</a><a href="rental-yield.html" class="nav-link active">Rental Yield</a><a href="cash-flow.html" class="nav-link">Cash Flow</a><a href="fee-comparison.html" class="nav-link">Fee Comparison</a><a href="investment-roi.html" class="nav-link">Investment ROI</a></div>
+      <div class="nav-links"><a href="index.html" class="nav-link">All Tools</a><a href="rental-yield.html" class="nav-link active">Rental Yield</a><a href="cash-flow.html" class="nav-link">Cash Flow</a><a href="investment-roi.html" class="nav-link">Investment ROI</a></div>
     </div>
     <div class="nav-group">
       <div class="nav-group-label">The Gallery Real Estate</div>
@@ -727,9 +715,7 @@ const els = {
   propertyValue: document.getElementById('propertyValue'),
   weeklyRent: document.getElementById('weeklyRent'),
   expenses: document.getElementById('expenses'),
-  vacancy: document.getElementById('vacancy'),
   expensesDisplay: document.getElementById('expensesDisplay'),
-  vacancyDisplay: document.getElementById('vacancyDisplay'),
   grossYield: document.getElementById('grossYield'),
   netYield: document.getElementById('netYield'),
   annualIncome: document.getElementById('annualIncome'),
@@ -739,7 +725,6 @@ const els = {
   donutPercent: document.getElementById('donutPercent'),
   legendNet: document.getElementById('legendNet'),
   legendExpenses: document.getElementById('legendExpenses'),
-  legendVacancy: document.getElementById('legendVacancy'),
 };
 
 // ── Format input on blur ──
@@ -760,45 +745,35 @@ function calculate() {
   const propVal = parseNum(els.propertyValue.value);
   const weeklyRent = parseNum(els.weeklyRent.value);
   const annualExpenses = parseFloat(els.expenses.value);
-  const vacancyRate = parseFloat(els.vacancy.value) / 100;
-
   const annualRent = weeklyRent * 52;
-  const vacancyLoss = annualRent * vacancyRate;
-  const adjRent = annualRent - vacancyLoss;
-  const netIncome = adjRent - annualExpenses;
+  const netIncome = annualRent - annualExpenses;
 
   const grossYield = propVal > 0 ? (annualRent / propVal) * 100 : 0;
   const netYield = propVal > 0 ? (netIncome / propVal) * 100 : 0;
 
   // Update displays
   els.expensesDisplay.textContent = fmtDollar(annualExpenses);
-  els.vacancyDisplay.textContent = fmtPct(vacancyRate * 100, 1);
   els.grossYield.textContent = fmtPct(grossYield);
   els.netYield.textContent = fmtPct(Math.max(0, netYield));
   els.annualIncome.textContent = fmtDollar(annualRent);
-  els.annualIncomeAdj.textContent = fmtDollar(adjRent) + ' adj. for vacancy';
+  els.annualIncomeAdj.textContent = fmtDollar(Math.max(0, netIncome)) + ' after expenses';
 
   // Donut chart
   const circ = 2 * Math.PI * 75; // 471.24
   const netPct = annualRent > 0 ? netIncome / annualRent : 0;
   const expPct = annualRent > 0 ? annualExpenses / annualRent : 0;
-  const vacPct = annualRent > 0 ? vacancyLoss / annualRent : 0;
-
   els.donutIncome.style.strokeDashoffset = circ - (circ * Math.max(0, netPct));
   els.donutExpenses.style.strokeDasharray = circ;
   els.donutExpenses.style.strokeDashoffset = circ - (circ * expPct);
-  // Rotate expenses arc to start after income
   els.donutExpenses.style.transform = `rotate(${Math.max(0, netPct) * 360}deg)`;
   els.donutExpenses.style.transformOrigin = '90px 90px';
 
   els.donutPercent.textContent = Math.round(Math.max(0, netPct) * 100) + '%';
   els.legendNet.textContent = fmtDollar(Math.max(0, netIncome));
   els.legendExpenses.textContent = fmtDollar(annualExpenses);
-  els.legendVacancy.textContent = fmtDollar(vacancyLoss);
 
   // Slider track fill
   updateSliderTrack(els.expenses, 0, 30000);
-  updateSliderTrack(els.vacancy, 0, 10);
 }
 
 function updateSliderTrack(el, min, max) {
@@ -810,7 +785,7 @@ function updateSliderTrack(el, min, max) {
 ['propertyValue', 'weeklyRent'].forEach(id => {
   els[id].addEventListener('input', calculate);
 });
-['expenses', 'vacancy'].forEach(id => {
+['expenses'].forEach(id => {
   els[id].addEventListener('input', calculate);
 });
 
