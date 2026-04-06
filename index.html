@@ -132,10 +132,13 @@ html.embedded { scrollbar-width:none; }
 <body>
 <script>if(window.self!==window.top){document.documentElement.classList.add('embedded');function postHeight(){window.parent.postMessage({type:'tgre-resize',height:document.documentElement.scrollHeight},'*');}window.addEventListener('load',function(){setTimeout(postHeight,100);});new ResizeObserver(postHeight).observe(document.body);}</script>
 <div class="page">
-  <header class="header animate-in" style="justify-content:center;">
+  <header class="header animate-in">
     <a href="https://www.thegalleryrealestate.com.au" class="brand" target="_blank">
-      <img src="https://www.thegalleryrealestate.com.au/_files/logos/tgre-short-rgb-grey.svg" alt="The Gallery Real Estate" height="24">
+      <img src="https://www.thegalleryrealestate.com.au/_files/logos/tgre-short-rgb-grey.svg" alt="The Gallery Real Estate" height="40">
     </a>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    </button>
   </header>
 
   <h1>Landlord <span>Tools</span></h1>
@@ -206,7 +209,6 @@ html.embedded { scrollbar-width:none; }
       <div class="footer-col">
         <h3>Contact</h3>
         <a href="https://www.thegalleryrealestate.com.au/contact-us" target="_blank">Contact us</a>
-        <p>780 Bourke Street<br>Redfern 2016<br>02 8999 3341</p>
       </div>
     </div>
     <div class="footer-bottom">
