@@ -330,13 +330,6 @@ html.embedded { scrollbar-width:none; }
     <div class="section-label">Annual Costs</div>
     <div class="form-grid">
       <div class="form-group">
-        <label>Management Fee</label>
-        <div class="input-wrap">
-          <input type="text" id="mgmtFee" value="5.5" inputmode="numeric">
-          <span class="suffix">%</span>
-        </div>
-      </div>
-      <div class="form-group">
         <label>Other Expenses (annual)</label>
         <div class="input-wrap">
           <span class="prefix">$</span>
@@ -432,7 +425,7 @@ const fmt = n => Math.abs(n).toLocaleString('en-AU',{maximumFractionDigits:0});
 const fmtD = n => '$'+fmt(n);
 const parseNum = s => parseFloat(String(s).replace(/[^0-9.]/g,'')) || 0;
 
-const ids = ['price','deposit','rent','stampDuty','growth','rentGrowth','interestRate','years','mgmtFee','expenses'];
+const ids = ['price','deposit','rent','stampDuty','growth','rentGrowth','interestRate','years','expenses'];
 const el = {};
 ids.forEach(id => el[id] = document.getElementById(id));
 
@@ -450,7 +443,7 @@ function calculate() {
   const rentGr = parseNum(el.rentGrowth.value)/100;
   const intRate = parseNum(el.interestRate.value)/100;
   const yrs = Math.min(Math.max(parseInt(parseNum(el.years.value)),1),30);
-  const mgmt = parseNum(el.mgmtFee.value)/100;
+  const mgmt = 0.055;
   const annExp = parseNum(el.expenses.value);
 
   const deposit = price * depPct;
