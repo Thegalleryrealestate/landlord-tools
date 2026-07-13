@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rent Calculator</title>
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --cream: #F9F2ED;
+    --terracotta: #D46144;
+    --terracotta-light: #E07A60;
+    --terracotta-bg: rgba(212, 97, 68, 0.06);
+    --dark: #181819;
+    --dark-secondary: #3a3a3c;
+    --grey-text: #6e6e73;
+    --border: rgba(24, 24, 25, 0.1);
+    --white: #ffffff;
+    --radius: 16px;
+    --radius-sm: 12px;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font);
+    background: transparent;
+    color: var(--dark);
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+  }
+
+  .rc-widget {
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  /* Title */
+  .rc-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+  }
+
+  .rc-title span {
+    color: var(--terracotta);
+  }
+
+  /* Input row */
+  .rc-input-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .rc-field {
+    flex: 1;
+    position: relative;
+  }
+
+  .rc-field label {
+    display: block;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--grey-text);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 6px;
+  }
+
+  .rc-currency {
+    position: absolute;
+    left: 14px;
+    bottom: 15px;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--dark);
+    pointer-events: none;
+  }
+
+  .rc-field input {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px 0 30px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-family: var(--font);
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--dark);
+    background: var(--white);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    -moz-appearance: textfield;
+  }
+
+  .rc-field input::-webkit-outer-spin-button,
+  .rc-field input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .rc-field input:focus {
+    border-color: var(--terracotta);
+    box-shadow: 0 0 0 3px rgba(212, 97, 68, 0.1);
+  }
+
+  .rc-field input::placeholder {
+    color: rgba(24, 24, 25, 0.25);
+    font-weight: 400;
+  }
+
+  .rc-select-field {
+    width: 148px;
+    flex-shrink: 0;
+  }
+
+  .rc-select-field select {
+    width: 100%;
+    height: 48px;
+    padding: 0 32px 0 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-family: var(--font);
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--dark);
+    background: var(--white);
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23181819' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .rc-select-field select:focus {
+    border-color: var(--terracotta);
+    box-shadow: 0 0 0 3px rgba(212, 97, 68, 0.1);
+  }
+
+  /* Results card */
+  .rc-results {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .rc-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 20px;
+    border-bottom: 1px solid rgba(24, 24, 25, 0.05);
+    transition: background-color 0.15s;
+  }
+
+  .rc-row:last-child {
+    border-bottom: none;
+  }
+
+  .rc-row.active {
+    background: var(--terracotta-bg);
+  }
+
+  .rc-row.active .rc-label {
+    color: var(--dark);
+    font-weight: 500;
+  }
+
+  .rc-row.active .rc-value {
+    color: var(--terracotta);
+    font-weight: 600;
+  }
+
+  .rc-label {
+    font-size: 14px;
+    color: var(--dark-secondary);
+    font-weight: 400;
+  }
+
+  .rc-value {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--dark);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  .rc-value.empty {
+    color: rgba(24, 24, 25, 0.18);
+    font-weight: 400;
+  }
+
+  /* Info line */
+  .rc-info {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--grey-text);
+    line-height: 1.55;
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .rc-input-row {
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .rc-select-field {
+      width: 100%;
+    }
+
+    .rc-row {
+      padding: 12px 16px;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="rc-widget">
+  <div class="rc-title">Rent <span>Calculator</span></div>
+
+  <div class="rc-input-row">
+    <div class="rc-field">
+      <label for="rc-amount">Amount</label>
+      <span class="rc-currency">$</span>
+      <input type="number" id="rc-amount" placeholder="0.00" min="0" step="any" inputmode="decimal">
+    </div>
+    <div class="rc-select-field">
+      <label for="rc-period">Per</label>
+      <select id="rc-period">
+        <option value="weekly" selected>Week</option>
+        <option value="daily">Day</option>
+        <option value="fortnightly">Fortnight</option>
+        <option value="monthly">Month</option>
+        <option value="yearly">Year</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="rc-results" id="rc-results">
+    <div class="rc-row" data-period="daily">
+      <span class="rc-label">Daily</span>
+      <span class="rc-value empty" id="v-daily">$0.00</span>
+    </div>
+    <div class="rc-row active" data-period="weekly">
+      <span class="rc-label">Weekly</span>
+      <span class="rc-value empty" id="v-weekly">$0.00</span>
+    </div>
+    <div class="rc-row" data-period="fortnightly">
+      <span class="rc-label">Fortnightly</span>
+      <span class="rc-value empty" id="v-fortnightly">$0.00</span>
+    </div>
+    <div class="rc-row" data-period="monthly">
+      <span class="rc-label">Monthly</span>
+      <span class="rc-value empty" id="v-monthly">$0.00</span>
+    </div>
+    <div class="rc-row" data-period="yearly">
+      <span class="rc-label">Yearly</span>
+      <span class="rc-value empty" id="v-yearly">$0.00</span>
+    </div>
+  </div>
+
+  <p class="rc-info">Based on a 365-day year. Monthly = yearly divided by 12.</p>
+</div>
+
+<script>
+(function() {
+  var input = document.getElementById('rc-amount');
+  var select = document.getElementById('rc-period');
+  var rows = document.querySelectorAll('.rc-row');
+  var periods = ['daily', 'weekly', 'fortnightly', 'monthly', 'yearly'];
+
+  function toDaily(amount, from) {
+    if (from === 'daily') return amount;
+    if (from === 'weekly') return amount / 7;
+    if (from === 'fortnightly') return amount / 14;
+    if (from === 'monthly') return (amount * 12) / 365;
+    if (from === 'yearly') return amount / 365;
+    return 0;
+  }
+
+  function fromDaily(daily, to) {
+    if (to === 'daily') return daily;
+    if (to === 'weekly') return daily * 7;
+    if (to === 'fortnightly') return daily * 14;
+    if (to === 'monthly') return (daily * 365) / 12;
+    if (to === 'yearly') return daily * 365;
+    return 0;
+  }
+
+  function fmt(v) {
+    if (v === 0) return '$0.00';
+    return '$' + v.toLocaleString('en-AU', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function calc() {
+    var raw = input.value.trim();
+    var amount = parseFloat(raw);
+    var period = select.value;
+
+    rows.forEach(function(row) {
+      row.classList.toggle('active', row.dataset.period === period);
+    });
+
+    if (!raw || isNaN(amount) || amount < 0) {
+      periods.forEach(function(p) {
+        var el = document.getElementById('v-' + p);
+        el.textContent = '$0.00';
+        el.classList.add('empty');
+      });
+      return;
+    }
+
+    var daily = toDaily(amount, period);
+    periods.forEach(function(p) {
+      var el = document.getElementById('v-' + p);
+      el.textContent = fmt(fromDaily(daily, p));
+      el.classList.remove('empty');
+    });
+  }
+
+  input.addEventListener('input', calc);
+  select.addEventListener('change', calc);
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') { e.preventDefault(); input.blur(); }
+  });
+
+  // Auto-resize iframe height if embedded
+  function notifyHeight() {
+    try {
+      if (window.self !== window.top) {
+        var h = document.querySelector('.rc-widget').offsetHeight + 16;
+        window.parent.postMessage({ type: 'rc-resize', height: h }, '*');
+      }
+    } catch(e) {}
+  }
+
+  // Observe size changes
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(notifyHeight).observe(document.querySelector('.rc-widget'));
+  }
+
+  calc();
+  notifyHeight();
+})();
+</script>
+</body>
+</html>
