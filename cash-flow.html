@@ -284,6 +284,42 @@ html.embedded .ltc.page{padding-top:20px;padding-bottom:20px}
 .rmc.done .rmc-thanks{display:block}
 .rmc-thanks{display:none;font-family:var(--font);font-size:1.08rem;line-height:1.5;color:var(--grey)}
 html.embedded .rmc{display:none!important}
+
+/* ===== Editorial guide sections (scoped .ltc .edt) — site typography ===== */
+.ltc .edt{margin:clamp(3rem,7vw,5rem) 0 clamp(2.6rem,6vw,4rem)}
+.ltc .edt-head{max-width:720px;margin-bottom:clamp(1.8rem,4vw,2.6rem)}
+.ltc .edt-head h2{font-family:aventa-wf,sans-serif;font-weight:400;letter-spacing:normal;line-height:1.15;font-size:var(--textsize-h2);color:var(--grey);margin-bottom:.9rem}
+.ltc .edt-head h2 span{color:var(--red)}
+.ltc .edt-lede{font-family:geist-wf,sans-serif;font-size:var(--textsize-body);font-weight:400;line-height:1.5;color:var(--grey);opacity:.75;max-width:60ch}
+.ltc .edt-prose{max-width:680px}
+.ltc .edt-prose p{font-family:geist-wf,sans-serif;font-size:var(--textsize-body);font-weight:400;line-height:1.5;color:var(--grey);opacity:.85;margin:0 0 1.15rem}
+.ltc .edt-prose h3{font-family:aventa-wf,sans-serif;font-weight:400;letter-spacing:normal;font-size:var(--textsize-h3);line-height:1.25;color:var(--grey);margin:2.2rem 0 .8rem}
+.ltc .edt-prose ul{margin:0 0 1.15rem;padding-left:1.15rem}
+.ltc .edt-prose li{font-family:geist-wf,sans-serif;font-size:var(--textsize-body);font-weight:400;line-height:1.5;color:var(--grey);opacity:.85;margin-bottom:.45rem}
+.ltc .edt-prose a{color:var(--red);text-decoration:none;border-bottom:1px solid rgba(212,97,68,.35);transition:border-color .2s}
+.ltc .edt-prose a:hover{border-color:var(--red)}
+.ltc .edt-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:clamp(1.8rem,4vw,2.6rem) 0}
+@media(max-width:820px){.ltc .edt-cards{grid-template-columns:1fr}}
+.ltc .edt-card{background:#fff;border:1px solid #e6dbd1;border-radius:16px;padding:1.5rem 1.4rem}
+.ltc .edt-card .ec-label{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:.6rem}
+.ltc .edt-card .ec-title{font-family:geist-wf,sans-serif;font-weight:700;font-size:var(--textsize-h4);line-height:1.25;color:var(--grey);margin-bottom:.5rem}
+.ltc .edt-card p{font-family:geist-wf,sans-serif;font-size:var(--textsize-body);font-weight:400;line-height:1.5;color:var(--grey);opacity:.75;margin:0}
+.ltc .edt-faq{max-width:680px;margin-top:clamp(2.2rem,5vw,3.2rem)}
+.ltc .edt-faq>h3{font-family:aventa-wf,sans-serif;font-weight:400;font-size:var(--textsize-h3);line-height:1.25;color:var(--grey);margin-bottom:1rem}
+.ltc .edt-faq details{border-top:1px solid #e6dbd1}
+.ltc .edt-faq details:last-of-type{border-bottom:1px solid #e6dbd1}
+.ltc .edt-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.25rem 0;font-family:geist-wf,sans-serif;font-weight:700;font-size:var(--textsize-h4);line-height:1.25;color:var(--grey)}
+.ltc .edt-faq summary::-webkit-details-marker{display:none}
+.ltc .edt-faq summary::after{content:"+";flex:none;font-family:geist-wf,sans-serif;font-size:1.3rem;line-height:1;color:var(--red);transition:transform .25s}
+.ltc .edt-faq details[open] summary::after{transform:rotate(45deg)}
+.ltc .edt-faq details p{font-family:geist-wf,sans-serif;font-size:var(--textsize-body);font-weight:400;line-height:1.5;color:var(--grey);opacity:.8;margin:0 0 1.25rem;max-width:62ch}
+.ltc .edt-more{margin-top:clamp(2.4rem,5vw,3.4rem);border-top:1px solid #e6dbd1;padding-top:1.6rem}
+.ltc .edt-more .em-label{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:.9rem}
+.ltc .edt-more nav{display:flex;flex-wrap:wrap;gap:10px}
+.ltc .edt-more nav a{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;font-family:geist-wf,sans-serif;font-size:var(--textsize-body);font-weight:400;color:var(--grey);background:#fff;border:1px solid #e6dbd1;border-radius:999px;padding:.55rem 1.1rem;transition:border-color .2s,color .2s}
+.ltc .edt-more nav a:hover{border-color:var(--red);color:var(--red)}
+.ltc .edt-fine{font-family:geist-wf,sans-serif;font-size:var(--textsize-small);font-weight:400;line-height:1.5;color:var(--grey);opacity:.55;margin-top:2rem;max-width:68ch}
+html.embedded .edt{display:none!important}
 </style>
 </head>
 <body class="short-hero pageclass-article">
@@ -318,7 +354,7 @@ html.embedded .rmc{display:none!important}
       <li depth="1"><a href="https://www.thegalleryrealestate.com.au/properties-for-lease">Properties</a></li>
       <li depth="1" class="hasChildren current"><button class="collapse-toggle" aria-label="toggle"></button><a href="https://www.thegalleryrealestate.com.au/landlords">Landlords</a>
         <ul depth="2">
-          <li depth="2"><a href="https://www.thegalleryrealestate.com.au/owner-guide">Owner Guide</a></li>
+          <li depth="2"><a href="fee-comparison.html">Fee Comparison</a><a href="https://www.thegalleryrealestate.com.au/owner-guide">Owner Guide</a></li>
           <li depth="2"><a href="https://www.thegalleryrealestate.com.au/landlordonenquiry">New Landlord Enquiry</a></li>
           <li depth="2"><a href="https://www.thegalleryrealestate.com.au/switch-to-the-gallery">Switch to The Gallery</a></li>
           <li depth="2"><a href="https://www.thegalleryrealestate.com.au/request-a-rental-appraisal">Rental Appraisal</a></li>
@@ -488,6 +524,47 @@ html.embedded .rmc{display:none!important}
         <div class="rmc-thanks">Thanks. Your report is on its way and one of our team will be in touch about your property.</div>
       </form>
     </div>
+  </section>
+
+  
+  <!-- Editorial guide -->
+  <section class="edt" id="guide">
+    <div class="edt-head">
+      <p class="kicker"><span class="kn">The detail</span></p>
+      <h2>Understanding your <span>cash flow.</span></h2>
+      <p class="edt-lede">Yield tells you how the property performs. Cash flow tells you what it does to your bank account each month. This is the number that decides whether an investment is comfortable to hold.</p>
+    </div>
+    <div class="edt-prose">
+      <h3>Positive, negative and neutral</h3>
+      <p>A positively geared property puts money in your pocket after all costs, including the loan. A negatively geared one costs you money each month, with the shortfall typically offset partly at tax time and justified by expected capital growth. Neither is automatically better. Positive cash flow suits investors who need income and resilience. Negative gearing suits those with strong incomes betting on growth. What matters is that you choose the position deliberately and can sustain it through rate rises and vacancies.</p>
+      <h3>The costs people forget</h3>
+      <p>Most cash flow surprises come from the irregular items rather than the obvious ones. Budget for all of these across a full year:</p>
+      <ul>
+        <li>Vacancy between tenancies. Even a well-managed property will have some. One to two weeks a year is a sensible allowance.</li>
+        <li>Letting fees and advertising when a tenancy turns over.</li>
+        <li>Repairs and maintenance, which arrive unevenly. A hot water system does not care about your budget.</li>
+        <li>Compliance costs like smoke alarm servicing and safety checks.</li>
+        <li>Land tax if your holdings exceed the NSW threshold.</li>
+      </ul>
+    </div>
+    <div class="edt-cards">
+      <div class="edt-card"><p class="ec-label">Stress test</p><p class="ec-title">Add 1 to 2 per cent</p><p>Run the calculator again with your interest rate 1 to 2 per cent higher. If the result still works, the investment is robust. If it breaks, you know your margin.</p></div>
+      <div class="edt-card"><p class="ec-label">Rule of thumb</p><p class="ec-title">Allow for vacancy</p><p>Price in at least one to two weeks of vacancy a year. A property that only works at 52 weeks of rent is priced for perfection.</p></div>
+      <div class="edt-card"><p class="ec-label">Watch</p><p class="ec-title">Strata levies move</p><p>Levies rise with building age, insurance premiums and capital works. Read the strata report and minutes before relying on today's figure.</p></div>
+    </div>
+    <div class="edt-prose">
+      <h3>Cash flow is manageable, not fixed</h3>
+      <p>Owners often treat cash flow as something that happens to them. In practice, most of the inputs respond to management. Rent reviews done on evidence and on time, vacancy kept short through fast leasing, maintenance handled early before it compounds and costs reviewed rather than rolled over. That is the day-to-day work of a good property manager, and it is where a management fee either earns itself back or does not. Our <a href="https://www.thegalleryrealestate.com.au/owner-guide">Owner Guide</a> explains how we approach it.</p>
+    </div>
+    <div class="edt-faq">
+      <h3>Common questions</h3>
+      <details><summary>Is negative gearing a bad thing?</summary><p>Not inherently. It is a trade: you accept a monthly shortfall in exchange for expected capital growth, with part of the loss offset against your taxable income. It becomes a problem when the shortfall is larger than you can comfortably sustain or when the growth assumption was never realistic. Speak to your accountant about how it applies to you.</p></details>
+      <details><summary>Should I include depreciation in my cash flow?</summary><p>Depreciation is a non-cash deduction, so it does not change your monthly bank position but can meaningfully improve your after-tax result, particularly on newer properties. A quantity surveyor's depreciation schedule usually costs a few hundred dollars and often pays for itself in the first year.</p></details>
+      <details><summary>What vacancy rate should I assume in Sydney?</summary><p>Sydney's rental vacancy has been tight for several years, often below 2 per cent. For budgeting, one to two weeks a year is a reasonable allowance. The bigger variable is how quickly your property leases when it does turn over, which comes down to pricing, presentation and how it is marketed.</p></details>
+      <details><summary>Interest only or principal and interest?</summary><p>Interest only improves monthly cash flow but costs more over the life of the loan and builds no equity through repayments. Many investors use interest only during the accumulation phase and switch later. This is a financing decision to make with your broker or adviser, not one a calculator should make for you.</p></details>
+      <details><summary>My property is cash flow negative. Should I sell?</summary><p>Not necessarily. The question is whether the total return, growth plus rent, justifies the holding cost, and whether that cost is sustainable for you. Before deciding, check the rent is actually at market. An under-rented property is the most common and most fixable cause of poor cash flow we see.</p></details>
+    </div>
+    <div class="edt-more"><p class="em-label">Keep running the numbers</p><nav><a href="index.html">All landlord tools</a><a href="rental-yield.html">Rental Yield Calculator</a><a href="investment-roi.html">Investment ROI</a><a href="mortgage.html">Mortgage Calculator</a><a href="https://www.thegalleryrealestate.com.au/owner-guide">Owner Guide</a></nav></div><p class="edt-fine">This calculator produces general estimates from the figures you enter. It is a guide only, not financial or investment advice and not a formal appraisal or valuation. Speak to your accountant or financial adviser about your own position. The Gallery Real Estate Pty Limited, licence 10103433.</p>
   </section>
 
   <section class="ltc-cta">

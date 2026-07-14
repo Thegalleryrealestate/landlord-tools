@@ -302,6 +302,42 @@ html.embedded .ltc.page{padding-top:20px;padding-bottom:20px}
 .rmc.done .rmc-thanks{display:block}
 .rmc-thanks{display:none;font-family:var(--font);font-size:1.08rem;line-height:1.5;color:var(--grey)}
 html.embedded .rmc{display:none!important}
+
+/* ===== Editorial guide sections (scoped .ltc .edt) — site typography ===== */
+.ltc .edt{margin:clamp(3rem,7vw,5rem) 0 clamp(2.6rem,6vw,4rem)}
+.ltc .edt-head{max-width:720px;margin-bottom:clamp(1.8rem,4vw,2.6rem)}
+.ltc .edt-head h2{font-family:aventa-wf,sans-serif;font-weight:400;letter-spacing:normal;line-height:1.15;font-size:var(--textsize-h2);color:var(--grey);margin-bottom:.9rem}
+.ltc .edt-head h2 span{color:var(--red)}
+.ltc .edt-lede{font-family:geist-wf,sans-serif;font-size:var(--textsize-body);font-weight:400;line-height:1.5;color:var(--grey);opacity:.75;max-width:60ch}
+.ltc .edt-prose{max-width:680px}
+.ltc .edt-prose p{font-family:geist-wf,sans-serif;font-size:var(--textsize-body);font-weight:400;line-height:1.5;color:var(--grey);opacity:.85;margin:0 0 1.15rem}
+.ltc .edt-prose h3{font-family:aventa-wf,sans-serif;font-weight:400;letter-spacing:normal;font-size:var(--textsize-h3);line-height:1.25;color:var(--grey);margin:2.2rem 0 .8rem}
+.ltc .edt-prose ul{margin:0 0 1.15rem;padding-left:1.15rem}
+.ltc .edt-prose li{font-family:geist-wf,sans-serif;font-size:var(--textsize-body);font-weight:400;line-height:1.5;color:var(--grey);opacity:.85;margin-bottom:.45rem}
+.ltc .edt-prose a{color:var(--red);text-decoration:none;border-bottom:1px solid rgba(212,97,68,.35);transition:border-color .2s}
+.ltc .edt-prose a:hover{border-color:var(--red)}
+.ltc .edt-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:clamp(1.8rem,4vw,2.6rem) 0}
+@media(max-width:820px){.ltc .edt-cards{grid-template-columns:1fr}}
+.ltc .edt-card{background:#fff;border:1px solid #e6dbd1;border-radius:16px;padding:1.5rem 1.4rem}
+.ltc .edt-card .ec-label{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:.6rem}
+.ltc .edt-card .ec-title{font-family:geist-wf,sans-serif;font-weight:700;font-size:var(--textsize-h4);line-height:1.25;color:var(--grey);margin-bottom:.5rem}
+.ltc .edt-card p{font-family:geist-wf,sans-serif;font-size:var(--textsize-body);font-weight:400;line-height:1.5;color:var(--grey);opacity:.75;margin:0}
+.ltc .edt-faq{max-width:680px;margin-top:clamp(2.2rem,5vw,3.2rem)}
+.ltc .edt-faq>h3{font-family:aventa-wf,sans-serif;font-weight:400;font-size:var(--textsize-h3);line-height:1.25;color:var(--grey);margin-bottom:1rem}
+.ltc .edt-faq details{border-top:1px solid #e6dbd1}
+.ltc .edt-faq details:last-of-type{border-bottom:1px solid #e6dbd1}
+.ltc .edt-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.25rem 0;font-family:geist-wf,sans-serif;font-weight:700;font-size:var(--textsize-h4);line-height:1.25;color:var(--grey)}
+.ltc .edt-faq summary::-webkit-details-marker{display:none}
+.ltc .edt-faq summary::after{content:"+";flex:none;font-family:geist-wf,sans-serif;font-size:1.3rem;line-height:1;color:var(--red);transition:transform .25s}
+.ltc .edt-faq details[open] summary::after{transform:rotate(45deg)}
+.ltc .edt-faq details p{font-family:geist-wf,sans-serif;font-size:var(--textsize-body);font-weight:400;line-height:1.5;color:var(--grey);opacity:.8;margin:0 0 1.25rem;max-width:62ch}
+.ltc .edt-more{margin-top:clamp(2.4rem,5vw,3.4rem);border-top:1px solid #e6dbd1;padding-top:1.6rem}
+.ltc .edt-more .em-label{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:.9rem}
+.ltc .edt-more nav{display:flex;flex-wrap:wrap;gap:10px}
+.ltc .edt-more nav a{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;font-family:geist-wf,sans-serif;font-size:var(--textsize-body);font-weight:400;color:var(--grey);background:#fff;border:1px solid #e6dbd1;border-radius:999px;padding:.55rem 1.1rem;transition:border-color .2s,color .2s}
+.ltc .edt-more nav a:hover{border-color:var(--red);color:var(--red)}
+.ltc .edt-fine{font-family:geist-wf,sans-serif;font-size:var(--textsize-small);font-weight:400;line-height:1.5;color:var(--grey);opacity:.55;margin-top:2rem;max-width:68ch}
+html.embedded .edt{display:none!important}
 </style>
 </head>
 <body class="short-hero pageclass-article">
@@ -336,7 +372,7 @@ html.embedded .rmc{display:none!important}
       <li depth="1"><a href="https://www.thegalleryrealestate.com.au/properties-for-lease">Properties</a></li>
       <li depth="1" class="hasChildren current"><button class="collapse-toggle" aria-label="toggle"></button><a href="https://www.thegalleryrealestate.com.au/landlords">Landlords</a>
         <ul depth="2">
-          <li depth="2"><a href="https://www.thegalleryrealestate.com.au/owner-guide">Owner Guide</a></li>
+          <li depth="2"><a href="fee-savings.html">Fee Savings</a><a href="https://www.thegalleryrealestate.com.au/owner-guide">Owner Guide</a></li>
           <li depth="2"><a href="https://www.thegalleryrealestate.com.au/landlordonenquiry">New Landlord Enquiry</a></li>
           <li depth="2"><a href="https://www.thegalleryrealestate.com.au/switch-to-the-gallery">Switch to The Gallery</a></li>
           <li depth="2"><a href="https://www.thegalleryrealestate.com.au/request-a-rental-appraisal">Rental Appraisal</a></li>
@@ -494,6 +530,42 @@ html.embedded .rmc{display:none!important}
         <div class="rmc-thanks">Thanks. Your report is on its way and one of our team will be in touch about your property.</div>
       </form>
     </div>
+  </section>
+
+  
+  <!-- Editorial guide -->
+  <section class="edt" id="guide">
+    <div class="edt-head">
+      <p class="kicker"><span class="kn">The detail</span></p>
+      <h2>What total return <span>really means.</span></h2>
+      <p class="edt-lede">Rent is the return you see every month. Growth is the return that usually ends up mattering more. This calculator combines the two, and the assumptions you feed it matter more than the maths.</p>
+    </div>
+    <div class="edt-prose">
+      <h3>The two engines of return</h3>
+      <p>A property investment pays you twice. Rental income arrives continuously and is easy to measure. Capital growth arrives unevenly, sometimes in bursts after years of nothing, and only becomes real when you sell or refinance. Over a full cycle, growth has historically contributed the larger share of total returns for well-located Sydney property, which is why experienced investors will accept a modest yield for the right street.</p>
+      <h3>Choose your growth assumption honestly</h3>
+      <p>The growth rate is the most sensitive input in this calculator. A single percentage point compounds dramatically over a decade. Long-run Sydney averages are often quoted around 5 to 7 per cent a year, but no suburb delivers that in a straight line and past averages are not a promise. Run the calculator at a conservative rate, a mid rate and an optimistic one. If the investment only works at the optimistic number, that is your answer.</p>
+      <h3>Leverage cuts both ways</h3>
+      <p>Because most property is bought with borrowed money, your return on the cash you actually invested can be several times the property's growth rate. A property growing at 5 per cent with an 80 per cent loan is earning far more than 5 per cent on your deposit. The same multiplier applies to losses, which is why the sustainability of your cash flow, not the size of the projected return, should set how far you stretch.</p>
+    </div>
+    <div class="edt-cards">
+      <div class="edt-card"><p class="ec-label">Discipline</p><p class="ec-title">Run three scenarios</p><p>Test a conservative, mid and optimistic growth rate. The spread between them is your real risk picture, not the single headline number.</p></div>
+      <div class="edt-card"><p class="ec-label">Reality check</p><p class="ec-title">Count the exit costs</p><p>Agent fees, legals and capital gains tax all come out of the final number. A projection that ignores them flatters the result.</p></div>
+      <div class="edt-card"><p class="ec-label">Perspective</p><p class="ec-title">Time beats timing</p><p>Sydney property rewards holding through cycles. Most of the damage investors do to their returns comes from buying and selling at the wrong moments, not from the asset itself.</p></div>
+    </div>
+    <div class="edt-prose">
+      <h3>The part of the return you control</h3>
+      <p>You cannot control the market, but you can control the income side: how quickly the property leases, whether the rent tracks the market and how well the asset is maintained so it keeps attracting good tenants. Those levers compound too. If you want a grounded starting point for the rent figure in this calculator, <a href="https://tgre-team.netlify.app/report-tool.html?src=calc-roi-guide" target="_blank" rel="noopener">see what your property could earn</a> or <a href="https://www.thegalleryrealestate.com.au/request-a-rental-appraisal">request a full appraisal</a>.</p>
+    </div>
+    <div class="edt-faq">
+      <h3>Common questions</h3>
+      <details><summary>What growth rate should I use for Sydney?</summary><p>Long-run citywide averages are often quoted around 5 to 7 per cent a year, but the honest answer is that it varies enormously by asset type, suburb and the decade you measure. Use a conservative figure as your base case and treat anything above it as upside rather than the plan.</p></details>
+      <details><summary>Is ROI the same as yield?</summary><p>No. Yield measures rent against the property's value in a single year. ROI measures your total gain, rent plus capital growth minus costs, against the money you actually invested, over the whole holding period. A property can have a modest yield and an excellent ROI, and vice versa.</p></details>
+      <details><summary>How long should I plan to hold?</summary><p>Property's high transaction costs, stamp duty on the way in and agent fees plus capital gains tax on the way out, punish short holds. Most projections only start to look reliable at seven to ten years, which is roughly a full market cycle.</p></details>
+      <details><summary>Does renovating improve ROI?</summary><p>It can, if the spend is targeted at what tenants and future buyers actually pay for: kitchens, bathrooms, light and storage. The test is simple: will the work lift the rent or the value by more than it costs, including the vacancy while it happens? We can give you a view on which improvements pay for themselves in your building.</p></details>
+      <details><summary>Should I count tax benefits in my ROI?</summary><p>Deductions and depreciation improve your after-tax position and belong in a full analysis, but they are personal to your income and structure. Model the investment without them first. If it only works because of the tax treatment, the underlying asset is doing too little of the work. Your accountant can model the after-tax picture properly.</p></details>
+    </div>
+    <div class="edt-more"><p class="em-label">Keep running the numbers</p><nav><a href="index.html">All landlord tools</a><a href="rental-yield.html">Rental Yield Calculator</a><a href="cash-flow.html">Cash Flow Calculator</a><a href="mortgage.html">Mortgage Calculator</a><a href="https://www.thegalleryrealestate.com.au/owner-guide">Owner Guide</a></nav></div><p class="edt-fine">This calculator produces general estimates from the figures you enter. It is a guide only, not financial or investment advice and not a formal appraisal or valuation. Speak to your accountant or financial adviser about your own position. The Gallery Real Estate Pty Limited, licence 10103433.</p>
   </section>
 
   <section class="ltc-cta">

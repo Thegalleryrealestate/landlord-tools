@@ -247,6 +247,42 @@ html.embedded .ltc.page{padding-top:20px;padding-bottom:20px}
 .rmc.done .rmc-thanks{display:block}
 .rmc-thanks{display:none;font-family:var(--font);font-size:1.08rem;line-height:1.5;color:var(--grey)}
 html.embedded .rmc{display:none!important}
+
+/* ===== Editorial guide sections (scoped .ltc .edt) — site typography ===== */
+.ltc .edt{margin:clamp(3rem,7vw,5rem) 0 clamp(2.6rem,6vw,4rem)}
+.ltc .edt-head{max-width:720px;margin-bottom:clamp(1.8rem,4vw,2.6rem)}
+.ltc .edt-head h2{font-family:aventa-wf,sans-serif;font-weight:400;letter-spacing:normal;line-height:1.15;font-size:var(--textsize-h2);color:var(--grey);margin-bottom:.9rem}
+.ltc .edt-head h2 span{color:var(--red)}
+.ltc .edt-lede{font-family:geist-wf,sans-serif;font-size:var(--textsize-body);font-weight:400;line-height:1.5;color:var(--grey);opacity:.75;max-width:60ch}
+.ltc .edt-prose{max-width:680px}
+.ltc .edt-prose p{font-family:geist-wf,sans-serif;font-size:var(--textsize-body);font-weight:400;line-height:1.5;color:var(--grey);opacity:.85;margin:0 0 1.15rem}
+.ltc .edt-prose h3{font-family:aventa-wf,sans-serif;font-weight:400;letter-spacing:normal;font-size:var(--textsize-h3);line-height:1.25;color:var(--grey);margin:2.2rem 0 .8rem}
+.ltc .edt-prose ul{margin:0 0 1.15rem;padding-left:1.15rem}
+.ltc .edt-prose li{font-family:geist-wf,sans-serif;font-size:var(--textsize-body);font-weight:400;line-height:1.5;color:var(--grey);opacity:.85;margin-bottom:.45rem}
+.ltc .edt-prose a{color:var(--red);text-decoration:none;border-bottom:1px solid rgba(212,97,68,.35);transition:border-color .2s}
+.ltc .edt-prose a:hover{border-color:var(--red)}
+.ltc .edt-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:clamp(1.8rem,4vw,2.6rem) 0}
+@media(max-width:820px){.ltc .edt-cards{grid-template-columns:1fr}}
+.ltc .edt-card{background:#fff;border:1px solid #e6dbd1;border-radius:16px;padding:1.5rem 1.4rem}
+.ltc .edt-card .ec-label{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:.6rem}
+.ltc .edt-card .ec-title{font-family:geist-wf,sans-serif;font-weight:700;font-size:var(--textsize-h4);line-height:1.25;color:var(--grey);margin-bottom:.5rem}
+.ltc .edt-card p{font-family:geist-wf,sans-serif;font-size:var(--textsize-body);font-weight:400;line-height:1.5;color:var(--grey);opacity:.75;margin:0}
+.ltc .edt-faq{max-width:680px;margin-top:clamp(2.2rem,5vw,3.2rem)}
+.ltc .edt-faq>h3{font-family:aventa-wf,sans-serif;font-weight:400;font-size:var(--textsize-h3);line-height:1.25;color:var(--grey);margin-bottom:1rem}
+.ltc .edt-faq details{border-top:1px solid #e6dbd1}
+.ltc .edt-faq details:last-of-type{border-bottom:1px solid #e6dbd1}
+.ltc .edt-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.25rem 0;font-family:geist-wf,sans-serif;font-weight:700;font-size:var(--textsize-h4);line-height:1.25;color:var(--grey)}
+.ltc .edt-faq summary::-webkit-details-marker{display:none}
+.ltc .edt-faq summary::after{content:"+";flex:none;font-family:geist-wf,sans-serif;font-size:1.3rem;line-height:1;color:var(--red);transition:transform .25s}
+.ltc .edt-faq details[open] summary::after{transform:rotate(45deg)}
+.ltc .edt-faq details p{font-family:geist-wf,sans-serif;font-size:var(--textsize-body);font-weight:400;line-height:1.5;color:var(--grey);opacity:.8;margin:0 0 1.25rem;max-width:62ch}
+.ltc .edt-more{margin-top:clamp(2.4rem,5vw,3.4rem);border-top:1px solid #e6dbd1;padding-top:1.6rem}
+.ltc .edt-more .em-label{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:.9rem}
+.ltc .edt-more nav{display:flex;flex-wrap:wrap;gap:10px}
+.ltc .edt-more nav a{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;font-family:geist-wf,sans-serif;font-size:var(--textsize-body);font-weight:400;color:var(--grey);background:#fff;border:1px solid #e6dbd1;border-radius:999px;padding:.55rem 1.1rem;transition:border-color .2s,color .2s}
+.ltc .edt-more nav a:hover{border-color:var(--red);color:var(--red)}
+.ltc .edt-fine{font-family:geist-wf,sans-serif;font-size:var(--textsize-small);font-weight:400;line-height:1.5;color:var(--grey);opacity:.55;margin-top:2rem;max-width:68ch}
+html.embedded .edt{display:none!important}
 </style>
 </head>
 <body class="short-hero pageclass-article">
@@ -281,7 +317,7 @@ html.embedded .rmc{display:none!important}
       <li depth="1"><a href="https://www.thegalleryrealestate.com.au/properties-for-lease">Properties</a></li>
       <li depth="1" class="hasChildren current"><button class="collapse-toggle" aria-label="toggle"></button><a href="https://www.thegalleryrealestate.com.au/landlords">Landlords</a>
         <ul depth="2">
-          <li depth="2"><a href="https://www.thegalleryrealestate.com.au/owner-guide">Owner Guide</a></li>
+          <li depth="2"><a href="fee-comparison.html">Fee Comparison</a><a href="https://www.thegalleryrealestate.com.au/owner-guide">Owner Guide</a></li>
           <li depth="2"><a href="https://www.thegalleryrealestate.com.au/landlordonenquiry">New Landlord Enquiry</a></li>
           <li depth="2"><a href="https://www.thegalleryrealestate.com.au/switch-to-the-gallery">Switch to The Gallery</a></li>
           <li depth="2"><a href="https://www.thegalleryrealestate.com.au/request-a-rental-appraisal">Rental Appraisal</a></li>
@@ -404,6 +440,42 @@ html.embedded .rmc{display:none!important}
         <div class="rmc-thanks">Thanks. Your report is on its way and one of our team will be in touch about your property.</div>
       </form>
     </div>
+  </section>
+
+  
+  <!-- Editorial guide -->
+  <section class="edt" id="guide">
+    <div class="edt-head">
+      <p class="kicker"><span class="kn">The detail</span></p>
+      <h2>Reading your repayment <span>numbers.</span></h2>
+      <p class="edt-lede">The monthly repayment is only the headline. How the loan is structured decides what the property really costs you and how much flexibility you keep along the way.</p>
+    </div>
+    <div class="edt-prose">
+      <h3>Principal and interest versus interest only</h3>
+      <p>Principal and interest repayments cost more each month but steadily build equity and cost far less over the life of the loan. Interest only keeps monthly outgoings down, which many investors use to preserve cash flow during the accumulation years, but the principal is still there waiting and the total interest bill is higher. Lenders also price investment and interest only loans slightly above owner-occupier rates, so make sure the rate you test here is the one you would actually pay.</p>
+      <h3>The total cost line matters</h3>
+      <p>Look past the monthly figure to the total interest over the term. On a typical 30 year loan, the interest can approach or exceed the amount borrowed. Small changes move this number a long way: a rate 0.5 per cent lower, fortnightly rather than monthly payments or modest extra repayments in the early years each strip years and tens of thousands of dollars from the total.</p>
+      <h3>Build in a buffer</h3>
+      <p>Lenders assess your borrowing at roughly 3 per cent above the actual rate, and that discipline is worth borrowing for yourself. If the repayments only work at today's rate with no vacancy and no repairs, the loan is too big for the plan. Rerun the calculator with a higher rate and make sure the answer still fits your life.</p>
+    </div>
+    <div class="edt-cards">
+      <div class="edt-card"><p class="ec-label">Structure</p><p class="ec-title">Offset accounts</p><p>An offset account reduces the interest you pay while keeping the cash accessible. For investors it can also preserve deductibility in ways a redraw does not. Ask your broker.</p></div>
+      <div class="edt-card"><p class="ec-label">Habit</p><p class="ec-title">Pay fortnightly</p><p>Half the monthly repayment every fortnight works out to one extra monthly payment a year, which quietly cuts years off a 30 year term.</p></div>
+      <div class="edt-card"><p class="ec-label">Discipline</p><p class="ec-title">Review the rate</p><p>Loyalty is expensive. Lenders reserve their sharpest rates for new customers, so reprice or refinance every couple of years rather than letting the loan drift.</p></div>
+    </div>
+    <div class="edt-prose">
+      <h3>The rent pays the mortgage. Make sure it is the right rent.</h3>
+      <p>For an investment property, the repayment is one side of a ledger the rent sits on the other side of. A rent that lags the market by $30 a week leaves more than $1,500 a year on the table, every year. Before you settle on the numbers in this calculator, make sure the income line is real: <a href="https://tgre-team.netlify.app/report-tool.html?src=calc-mortgage-guide" target="_blank" rel="noopener">see what your property could earn</a>, then test the cash flow with the <a href="cash-flow.html">Cash Flow Calculator</a>.</p>
+    </div>
+    <div class="edt-faq">
+      <h3>Common questions</h3>
+      <details><summary>Why is my quoted rate higher than advertised rates?</summary><p>Investment loans and interest only loans carry higher rates than owner-occupier principal and interest loans, and the sharpest advertised rates usually assume large deposits. The rate that matters is the one on your loan offer, so test that figure here rather than a headline number.</p></details>
+      <details><summary>Is a shorter loan term better?</summary><p>A shorter term forces higher repayments and saves substantial interest, but it removes flexibility. Many borrowers keep the 30 year term and make voluntary extra repayments instead, which achieves the same saving while keeping the option to drop back to the minimum if circumstances change.</p></details>
+      <details><summary>Fixed or variable for an investment property?</summary><p>Fixing buys certainty over your largest cost, which can suit a tightly geared investment, but usually limits extra repayments and offset benefits and can carry heavy break costs. Splitting the loan between fixed and variable is a common middle path. This is a decision for your broker or adviser with your full position in front of them.</p></details>
+      <details><summary>Can the rent cover the whole repayment?</summary><p>Sometimes, particularly with higher-yielding units or larger deposits. Whether it should is a strategy question. Run the full picture in the Cash Flow Calculator, including rates, levies, insurance and management, rather than comparing rent to the repayment alone.</p></details>
+      <details><summary>Does interest only affect my tax position?</summary><p>Interest on an investment loan is generally deductible while principal repayments are not, which is one reason investors like interest only structures. The rules depend on how the loan and any redraws are used, so have your accountant confirm the treatment before you rely on it.</p></details>
+    </div>
+    <div class="edt-more"><p class="em-label">Keep running the numbers</p><nav><a href="index.html">All landlord tools</a><a href="cash-flow.html">Cash Flow Calculator</a><a href="rental-yield.html">Rental Yield Calculator</a><a href="investment-roi.html">Investment ROI</a><a href="https://www.thegalleryrealestate.com.au/owner-guide">Owner Guide</a></nav></div><p class="edt-fine">This calculator produces general estimates from the figures you enter. It is a guide only, not financial or investment advice and not a formal appraisal or valuation. Speak to your accountant or financial adviser about your own position. The Gallery Real Estate Pty Limited, licence 10103433.</p>
   </section>
 
   <section class="ltc-cta">

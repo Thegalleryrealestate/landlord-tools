@@ -10,18 +10,16 @@ Public calculator suite hosted on GitHub Pages. Lives at thegalleryrealestate.gi
 
 ## Calculators
 
-Live and linked from the hub:
-- `rental-yield.html`
-- `cash-flow.html`
-- `investment-roi.html`
-- `mortgage.html`
-- `index.html` (hub page)
+All 8 live and linked from the hub (`index.html`), in two hub sections:
 
-Built but hidden (need work before going live):
-- `fee-savings.html`
-- `fee-comparison.html`
-- `appraisal.html`
-- `income-maximiser.html` (blocked on real REA suburb median rent data)
+The toolkit (01): `rental-yield.html`, `cash-flow.html`, `investment-roi.html`, `mortgage.html`
+Fees and income (02): `fee-comparison.html`, `fee-savings.html`, `income-maximiser.html`, `appraisal.html`
+
+Notes on the July 2026 relaunch of the second four:
+- Fee figures come from the standard proposal schedule: 6% management, 155% of one week letting, $500 marketing, $9/mo admin. On both fee pages every TGRE figure is an editable input, never a hardcoded claim.
+- `appraisal.html` is a real lead form: two-step (property details, then contact), POSTs to `https://tgre-team.netlify.app/api/report-lead` with `source_page: calc-appraisal`.
+- `income-maximiser.html` uses hardcoded indicative suburb medians (July 2026) with visible "guide figures only" disclaimers. Update the `SUBURB_DATA` object when refreshed figures are available.
+- `rent-converter.html` is a small embeddable widget for the website, not part of the hub.
 
 ## Design conventions
 
@@ -34,6 +32,7 @@ Redesigned Jul 2026 to read as real pages of the website (editorial style, match
 - Cream background (#F9F2ED), dark sections (#181819), terracotta accent (#d46144), Aventa headings.
 - Calculators keep their embedded base64 Aventa fonts for the calc UI; the site CSS also loads Aventa for the chrome.
 - Embedded/iframe mode: site chrome, hero and CTA are hidden via `html.embedded` rules so only the calculator shows (postMessage resize preserved).
+- Editorial guide layer (Jul 2026): each live calculator has a `.edt` section between the capture form and the dark CTA — guide prose, three `.edt-card` benchmark cards, a details/summary FAQ, "Keep running the numbers" cross-link pills and a compliance disclaimer. Scoped CSS appended to the page's style block; hidden in embedded mode via `html.embedded .edt`. Keep new calculators to the same shape (~1,000 words a page).
 
 The transform script that applied the shell to the calculators is at
 `TGRE Claude/.../scratchpad/transform_calcs.py` (re-derives shared blocks from `index.html`).
