@@ -1,6 +1,6 @@
 # Landlord Tools — Calculator Suite
 
-Public calculator suite hosted on GitHub Pages. Lives at thegalleryrealestate.github.io/landlord-tools/.
+Public calculator suite hosted on GitHub Pages. Live at tools.thegalleryrealestate.com.au (custom domain via CNAME file + DNS CNAME record; old thegalleryrealestate.github.io/landlord-tools/ URL 301s across).
 
 ## Repo
 
