@@ -18,7 +18,7 @@
 :root {
   --tan:#F9F2ED;--grey:#3C3835;--red:#D46144;--light-red:#F29577;
   --white:#FFFFFF;--green:#4A9B6E;
-  --font:'Aventa','Plus Jakarta Sans',sans-serif;
+  --font:'aventa-wf','Aventa','Plus Jakarta Sans',sans-serif;
   --radius:16px;--shadow:0 4px 24px rgba(60,56,53,0.06);--shadow-lg:0 12px 48px rgba(60,56,53,0.10);
   --transition:0.3s cubic-bezier(0.4,0,0.2,1);
 }
@@ -255,17 +255,17 @@ html.embedded { scrollbar-width:none; }
 .ltc .calc-back{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.02em;color:var(--grey);opacity:.5;margin-bottom:2rem;transition:opacity .25s,gap .25s}
 .ltc .calc-back:hover{opacity:.85;gap:11px}
 .ltc .calc-back svg{width:15px;height:15px}
-.ltc .calc-hero h1{font-family:var(--font);font-weight:500;letter-spacing:-.02em;line-height:1.08;font-size:clamp(2.2rem,5.5vw,3.6rem);margin-bottom:1.1rem}
+.ltc .calc-hero h1{font-family:var(--font);font-weight:500;letter-spacing:normal;line-height:1;font-size:var(--textsize-super);margin-bottom:1.1rem}
 .ltc .calc-hero h1 span{color:var(--red)}
-.ltc .calc-hero .lede{font-size:clamp(1.02rem,1.35vw,1.2rem);font-weight:300;line-height:1.6;color:var(--grey);opacity:.72;max-width:56ch}
+.ltc .calc-hero .lede{font-family:'geist-wf',sans-serif;font-size:clamp(1.02rem,1.35vw,1.2rem);font-weight:400;line-height:1.6;color:var(--grey);opacity:.72;max-width:56ch}
 /* dark CTA panel */
 .ltc-cta{background:#181819;border-radius:20px;padding:clamp(3rem,6vw,4.5rem) clamp(1.6rem,4vw,3rem);text-align:center;position:relative;overflow:hidden;margin-top:8px}
 .ltc-cta-inner{position:relative;z-index:2;max-width:640px;margin:0 auto}
 .ltc-cta .kicker{justify-content:center;color:#e8a273;margin-bottom:1.1rem}
 .ltc-cta .kicker::after{display:none}
-.ltc-cta h2{font-family:var(--font);font-weight:500;letter-spacing:-.02em;line-height:1.1;font-size:clamp(1.7rem,3.4vw,2.5rem);color:#fff}
+.ltc-cta h2{font-family:var(--font);font-weight:400;letter-spacing:normal;line-height:1.15;font-size:var(--textsize-h2);color:#fff}
 .ltc-cta h2 span{color:var(--red)}
-.ltc-cta .ltc-cta-sub{font-size:1.02rem;font-weight:300;line-height:1.6;color:rgba(255,255,255,.72);margin:.9rem auto 2rem;max-width:44ch}
+.ltc-cta .ltc-cta-sub{font-family:'geist-wf',sans-serif;font-size:1.02rem;font-weight:400;line-height:1.6;color:rgba(255,255,255,.72);margin:.9rem auto 2rem;max-width:44ch}
 .ltc-cta .cta-buttons{justify-content:center}
 .ltc-cta .cta-btn.outline{color:#fff;border-color:rgba(255,255,255,.28)}
 .ltc-cta .cta-btn.outline:hover{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.5)}
