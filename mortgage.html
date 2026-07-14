@@ -217,6 +217,36 @@ html.embedded { scrollbar-width:none; }
 /* embedded (iframe) mode: hide site chrome + hero + cta, show only the calculator */
 html.embedded .siteHeader,html.embedded .sidenav-right,html.embedded .siteFooter,html.embedded .calc-hero,html.embedded .ltc-cta{display:none!important}
 html.embedded .ltc.page{padding-top:20px;padding-bottom:20px}
+
+/* ===== Lead engine: trust row, tertiary link, result-moment capture ===== */
+.ltc-cta .cta-trust{display:flex;flex-wrap:wrap;justify-content:center;gap:1.3rem 2.4rem;margin:0 auto 2rem;max-width:600px}
+.ltc-cta .cta-trust .ci{display:flex;flex-direction:column;align-items:center;gap:.2rem}
+.ltc-cta .cta-trust .cn{font-family:var(--font);font-weight:500;font-size:1.5rem;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+.ltc-cta .cta-trust .cn em{font-style:normal;color:var(--red);font-size:.55em}
+.ltc-cta .cta-trust .cl{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600}
+.ltc-cta .cta-tertiary{margin-top:1.2rem}
+.ltc-cta .cta-tertiary a{color:rgba(255,255,255,.72);text-decoration:none;font-size:.92rem;border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:2px;transition:color .2s,border-color .2s}
+.ltc-cta .cta-tertiary a:hover{color:#fff;border-color:#fff}
+.ltc-cta .cta-awards{margin-top:1.5rem;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.4);font-weight:600}
+/* result-moment capture */
+.ltc .rmc{margin:0 0 6px}
+.rmc-card{background:#fbeee8;border:1px solid #e6dbd1;border-radius:18px;padding:clamp(1.7rem,3.5vw,2.5rem);display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1.4rem,3vw,2.8rem);align-items:center}
+@media(max-width:760px){.rmc-card{grid-template-columns:1fr;gap:1.4rem}}
+.rmc-kicker{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:.7rem}
+.rmc-h{font-family:var(--font);font-weight:500;letter-spacing:normal;line-height:1.12;font-size:clamp(1.3rem,2.2vw,1.7rem);color:var(--grey)}
+.rmc-sub{font-family:'geist-wf',sans-serif;font-size:.98rem;line-height:1.55;color:var(--grey);opacity:.75;margin-top:.6rem}
+.rmc-form{display:flex;flex-direction:column;gap:10px}
+.rmc-form input{height:50px;border:1.5px solid #e6dbd1;border-radius:11px;padding:0 16px;font-family:'geist-wf',sans-serif;font-size:15px;color:var(--grey);background:#fff;outline:none;transition:border-color .2s}
+.rmc-form input:focus{border-color:var(--red)}
+.rmc-hp{position:absolute!important;left:-9999px;height:0;width:0;opacity:0}
+.rmc-btn{height:50px;border:none;border-radius:11px;background:var(--red);color:#fff;font-family:'geist-wf',sans-serif;font-weight:600;font-size:15px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;transition:background .2s,transform .15s}
+.rmc-btn:hover{background:#ba482b;transform:translateY(-1px)}
+.rmc-btn:disabled{opacity:.6;cursor:default;transform:none}
+.rmc-msg{font-size:.88rem;color:#ba482b;min-height:1.05em}
+.rmc.done .rmc-form{display:none}
+.rmc.done .rmc-thanks{display:block}
+.rmc-thanks{display:none;font-family:var(--font);font-size:1.08rem;line-height:1.5;color:var(--grey)}
+html.embedded .rmc{display:none!important}
 </style>
 </head>
 <body class="short-hero pageclass-article">
@@ -355,13 +385,36 @@ html.embedded .ltc.page{padding-top:20px;padding-bottom:20px}
   </div>
 
   <!-- CTA -->
+
+  <!-- Result-moment capture -->
+  <section class="rmc">
+    <div class="rmc-card">
+      <div class="rmc-copy">
+        <p class="rmc-kicker">Your number, made real</p>
+        <h3 class="rmc-h">Want a proper figure for your property?</h3>
+        <p class="rmc-sub">Send yourself a personalised rental report and, if you would like, a tailored appraisal from our team. Takes a few seconds, no obligation.</p>
+      </div>
+      <form class="rmc-form" data-rmc novalidate>
+        <input type="text" name="name" placeholder="Your name" autocomplete="name">
+        <input type="email" name="email" placeholder="Email address" autocomplete="email" inputmode="email">
+        <input type="tel" name="phone" placeholder="Mobile (optional)" autocomplete="tel" inputmode="tel">
+        <input class="rmc-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="rmc-btn">Send me this &rarr;</button>
+        <p class="rmc-msg" data-rmc-msg></p>
+        <div class="rmc-thanks">Thanks. Your report is on its way and one of our team will be in touch about your property.</div>
+      </form>
+    </div>
+  </section>
+
   <section class="ltc-cta">
     <div class="ltc-cta-inner">
       <p class="kicker"><span class="kn">The real number</span></p>
       <h2>Need the right <span>finance?</span></h2>
       <p class="ltc-cta-sub">We work with trusted mortgage brokers who specialise in investment lending. Let us connect you.</p>
-      <div class="cta-buttons"><a href="https://www.thegalleryrealestate.com.au/contact-us" target="_blank" class="cta-btn">Connect With a Broker</a>
-      <a href="https://www.thegalleryrealestate.com.au/landlordonenquiry" target="_blank" class="cta-btn outline">Landlord Enquiry</a></div>
+      <div class="cta-trust"><div class="ci"><span class="cn">$350M<em>+</em></span><span class="cl">Under management</span></div><div class="ci"><span class="cn">4.9<em>&#9733;</em></span><span class="cl">Google rating</span></div><div class="ci"><span class="cn">8<em> days</em></span><span class="cl">Median on market</span></div></div>
+      <div class="cta-buttons"><a class="cta-btn" href="https://tgre-team.netlify.app/report-tool.html?src=calc-mortgage" target="_blank" rel="noopener">See what your property could earn</a><a class="cta-btn outline" href="https://calendly.com/tgre/meeting" target="_blank" rel="noopener">Book a 20 minute call</a></div>
+      <p class="cta-tertiary"><a href="https://www.thegalleryrealestate.com.au/request-a-rental-appraisal" target="_blank" rel="noopener">Or request a full appraisal &rarr;</a></p>
+      <p class="cta-awards">2026 Outstanding Real Estate Agency &middot; 2026 Young Business Champion</p>
     </div>
   </section>
 
@@ -480,5 +533,30 @@ calculate();
 <script src="https://www.thegalleryrealestate.com.au/js/cowtools/customelements.js?asset_version=sdfv3"></script>
 <script src="https://www.thegalleryrealestate.com.au/js/cowtools/cowtools.js?asset_version=sdfv3"></script>
 <script src="https://www.thegalleryrealestate.com.au/js/cssvars.js?asset_version=sdfv3"></script>
+<script>
+(function(){
+  var f=document.querySelector('[data-rmc]');if(!f)return;
+  var API="https://tgre-team.netlify.app/api/report-lead";
+  var wrap=f.closest('.rmc'), msg=f.querySelector('[data-rmc-msg]');
+  function v(n){var el=f.querySelector('[name="'+n+'"]');return el?el.value.trim():"";}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(v('website'))return;
+    var name=v('name'),email=v('email');
+    if(!name){msg.textContent="Please add your name.";return;}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg.textContent="Please add a valid email so we can send your report.";return;}
+    msg.textContent="";
+    var h1=document.querySelector('.calc-hero h1');
+    var page=(location.pathname.split('/').pop()||'calculator').replace('.html','');
+    var body={name:name,email:email,phone:v('phone'),website:"",
+      property_address:"",suburb:"",property_type:"",bedrooms:"",bathrooms:"",parking:"",
+      situation:"",timeframe:"",priority:"",rent_low:"",rent_high:"",rent_point:"",rent_annual:"",report_url:"",
+      note:"Landlord Tools \u2014 "+(h1?h1.textContent.trim():page),source_page:"calc-"+page};
+    var btn=f.querySelector('.rmc-btn');if(btn){btn.disabled=true;btn.textContent="Sending\u2026";}
+    fetch(API,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(body)})
+      .catch(function(){}).finally(function(){wrap.classList.add('done');});
+  });
+})();
+</script>
 </body>
 </html>

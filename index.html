@@ -77,6 +77,19 @@
   .lt .tool .go{grid-column:2;justify-self:start;width:46px;height:46px;margin-top:.3rem}
 }
 
+/* trust band */
+.lt .trust-band{background:var(--cream);padding:clamp(2.6rem,6vw,4rem) 0}
+.lt .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1.5rem,3.5vw,3rem)}
+@media(max-width:760px){.lt .trust-grid{grid-template-columns:1fr 1fr;gap:1.8rem 1.5rem}}
+.lt .trust-item{padding-top:1.4rem;border-top:1px solid var(--rule-light)}
+.lt .trust-item .tnum{font-family:var(--head);font-weight:500;font-size:clamp(2rem,3.6vw,2.8rem);line-height:1;font-variant-numeric:tabular-nums}
+.lt .trust-item .tnum em{font-style:normal;color:var(--accent);font-size:.5em}
+.lt .trust-item .tlbl{margin-top:.7rem;font-size:.9rem;color:var(--ink-mid);max-width:22ch}
+.lt .trust-awards{margin-top:clamp(1.8rem,4vw,2.6rem);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--ink-dim)}
+.lt .cta-tertiary{margin-top:1.3rem}
+.lt .cta-tertiary a{color:var(--on-dark-mid);text-decoration:none;font-size:.92rem;border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:2px;transition:color .2s,border-color .2s}
+.lt .cta-tertiary a:hover{color:#fff;border-color:#fff}
+
 /* dark CTA */
 .lt .on-dark{background:var(--dark);color:var(--on-dark);position:relative;overflow:hidden}
 .lt .on-dark h2{color:var(--on-dark)}
@@ -226,6 +239,19 @@ html.js .lt .reveal.in{opacity:1;transform:none}
     </div>
   </section>
 
+  <!-- Trust -->
+  <section class="trust-band">
+    <div class="wrap">
+      <div class="trust-grid">
+        <div class="trust-item reveal"><div class="tnum">$350M<em>+</em></div><div class="tlbl">Assets under management</div></div>
+        <div class="trust-item reveal"><div class="tnum">4.9<em>&#9733;</em></div><div class="tlbl">Google rating from owners and tenants</div></div>
+        <div class="trust-item reveal"><div class="tnum">3<em>x</em></div><div class="tlbl">The enquiries of the market average</div></div>
+        <div class="trust-item reveal"><div class="tnum">8<em> days</em></div><div class="tlbl">Median time on market, vs 19 wider</div></div>
+      </div>
+      <p class="trust-awards reveal">2026 Outstanding Real Estate Agency &middot; 2026 Young Business Champion</p>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="on-dark cta">
     <div class="cta-mark" aria-hidden="true">
@@ -233,12 +259,13 @@ html.js .lt .reveal.in{opacity:1;transform:none}
     </div>
     <div class="wrap inner">
       <p class="kicker reveal"><span class="kn">02</span>The real number</p>
-      <h2 class="reveal">Want the exact figure <span class="accent">for your property?</span></h2>
-      <p class="sub reveal">A calculator is a starting point. A proper appraisal takes in the condition, the finishes and what is leasing on your street right now. Thomas will walk you through it, no pressure.</p>
+      <h2 class="reveal">See what your property <span class="accent">could earn.</span></h2>
+      <p class="sub reveal">A calculator is a starting point. Answer a few quick questions and we will build you a personalised rental report in under a minute, with an indicative weekly figure for your property. No obligation.</p>
       <div class="reveal">
-        <a class="btn" href="https://calendly.com/tgre/meeting" target="_blank" rel="noopener">Book a 20 minute call</a>
-        <a class="btn-ghost" href="https://www.thegalleryrealestate.com.au/request-a-rental-appraisal" target="_blank" rel="noopener">Request a rental appraisal</a>
+        <a class="btn" href="https://tgre-team.netlify.app/report-tool.html?src=landlord-tools-hub" target="_blank" rel="noopener">See what your property could earn</a>
+        <a class="btn-ghost" href="https://calendly.com/tgre/meeting" target="_blank" rel="noopener">Book a 20 minute call</a>
       </div>
+      <p class="cta-tertiary reveal"><a href="https://www.thegalleryrealestate.com.au/request-a-rental-appraisal" target="_blank" rel="noopener">Or request a full appraisal &rarr;</a></p>
       <p class="fine">These calculators generate general estimates from the details you enter. They are a guide only and are not a formal appraisal, valuation or an offer of any kind. Actual figures depend on the property&rsquo;s condition, inclusions, presentation and current market demand. The Gallery Real Estate Pty Limited, licence 10103433.</p>
     </div>
   </section>
